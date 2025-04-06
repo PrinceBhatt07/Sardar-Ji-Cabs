@@ -74,4 +74,15 @@ class BookATripRequest extends FormRequest
         ];
     }
 
+
+    // For ProhibitedIf rule
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            if ($this->is_new_car_promised == true && $this->is_diesel_car_needed == true) {
+                $validator->errors()->add('is_diesel_car_needed', 'Due to the new government policy, a new car cannot be a diesel car. Please select either a new car or a diesel car, but not both.');
+            }
+        });
+    }
+
 }
