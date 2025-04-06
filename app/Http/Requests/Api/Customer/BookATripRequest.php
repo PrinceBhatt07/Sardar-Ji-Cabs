@@ -83,6 +83,7 @@ class BookATripRequest extends FormRequest
                 $validator->errors()->add('is_diesel_car_needed', 'Due to the new government policy, a new car cannot be a diesel car. Please select either a new car or a diesel car, but not both.');
             }
         });
+        
     }
 
 }
